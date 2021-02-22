@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { uuid } from 'uuidv4';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import About from './pages/About';
 
 function App() {
 	const [todos, setTodos] = useState([
@@ -48,25 +50,41 @@ function App() {
 	};
 
 	return (
-		<div className="App">
-			<h1 style={{ margin: 20, fontWeight: 'bolder', fontSize: 50 }}>
-				TODO LIST
-			</h1>
-			<AddTodo addToDo={addToDo} />
-			{todos.length !== 0 ? (
-				<Todos
-					todos={todos}
-					toggleCompleted={toggleCompleted}
-					deleteTodo={deleteTodo}
+		<Router>
+			<div className="App">
+				<h1 style={{ margin: 20, fontWeight: 'bolder', fontSize: 50 }}>
+					TODO LIST
+				</h1>
+
+				<Route
+					path="/"
+					exact
+					render={() => (
+						<React.Fragment>
+							<AddTodo addToDo={addToDo} />
+							{todos.length !== 0 ? (
+								<Todos
+									todos={todos}
+									toggleCompleted={toggleCompleted}
+									deleteTodo={deleteTodo}
+								/>
+							) : (
+								<h2
+									style={{
+										color: 'coral',
+										marginTop: 100,
+										fontWeight: 'bolder',
+									}}
+								>
+									No Task to Show
+								</h2>
+							)}
+						</React.Fragment>
+					)}
 				/>
-			) : (
-				<h2
-					style={{ color: 'coral', marginTop: 100, fontWeight: 'bolder' }}
-				>
-					No Task to Show
-				</h2>
-			)}
-		</div>
+				<Route path="/about" component={About} />
+			</div>
+		</Router>
 	);
 }
 
