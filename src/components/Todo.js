@@ -17,6 +17,17 @@ const Todo = ({ todo, toggleCompleted }) => {
 					onClick={() => toggleCompleted(todo.id)}
 				/>
 				{todo.task}
+				<button
+					style={{
+						fontWeight: 'bolder',
+						backgroundColor: 'red',
+						padding: '7px 11px',
+						borderRadius: '50%',
+						float: 'right',
+					}}
+				>
+					X
+				</button>
 			</h2>
 		</div>
 	);
