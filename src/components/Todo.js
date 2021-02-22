@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleCompleted }) => {
 	return (
 		<div>
 			<h2
@@ -11,7 +11,11 @@ const Todo = ({ todo }) => {
 					textDecoration: todo.completed ? 'line-through' : 'none',
 				}}
 			>
-				<input type="checkbox" style={{ marginRight: 10 }} />
+				<input
+					type="checkbox"
+					style={{ marginRight: 10 }}
+					onClick={() => toggleCompleted(todo.id)}
+				/>
 				{todo.task}
 			</h2>
 		</div>

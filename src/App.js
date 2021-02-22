@@ -21,10 +21,22 @@ function App() {
 			completed: false,
 		},
 	]);
+
+	const toggleCompleted = (id) => {
+		setTodos(
+			todos.map((todo) => {
+				if (todo.id === id) {
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			}),
+		);
+	};
+
 	return (
 		<div className="App">
 			<h1>TODO LIST</h1>
-			<Todos todos={todos} />
+			<Todos todos={todos} toggleCompleted={toggleCompleted} />
 		</div>
 	);
 }
