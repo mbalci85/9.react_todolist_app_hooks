@@ -40,11 +40,19 @@ function App() {
 	return (
 		<div className="App">
 			<h1>TODO LIST</h1>
-			<Todos
-				todos={todos}
-				toggleCompleted={toggleCompleted}
-				deleteTodo={deleteTodo}
-			/>
+			{todos.length !== 0 ? (
+				<Todos
+					todos={todos}
+					toggleCompleted={toggleCompleted}
+					deleteTodo={deleteTodo}
+				/>
+			) : (
+				<h2
+					style={{ color: 'coral', marginTop: 100, fontWeight: 'bolder' }}
+				>
+					No Task to Show
+				</h2>
+			)}
 		</div>
 	);
 }
