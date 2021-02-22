@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { uuid } from 'uuidv4';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 
 function App() {
 	const [todos, setTodos] = useState([
@@ -39,7 +40,10 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>TODO LIST</h1>
+			<h1 style={{ margin: 20, fontWeight: 'bolder', fontSize: 50 }}>
+				TODO LIST
+			</h1>
+			<AddTodo />
 			{todos.length !== 0 ? (
 				<Todos
 					todos={todos}
