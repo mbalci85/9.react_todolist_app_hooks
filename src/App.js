@@ -38,12 +38,21 @@ function App() {
 		setTodos(todos.filter((todo) => todo.id !== id));
 	};
 
+	const addToDo = (task) => {
+		const newTask = {
+			id: uuid(),
+			task,
+			completed: false,
+		};
+		setTodos([...todos, newTask]);
+	};
+
 	return (
 		<div className="App">
 			<h1 style={{ margin: 20, fontWeight: 'bolder', fontSize: 50 }}>
 				TODO LIST
 			</h1>
-			<AddTodo />
+			<AddTodo addToDo={addToDo} />
 			{todos.length !== 0 ? (
 				<Todos
 					todos={todos}
