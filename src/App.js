@@ -46,6 +46,7 @@ function App() {
 			task,
 			completed: false,
 		};
+		if (task === '') return todos;
 		setTodos([...todos, newTask]);
 	};
 
