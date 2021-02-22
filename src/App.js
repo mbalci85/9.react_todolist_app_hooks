@@ -33,10 +33,18 @@ function App() {
 		);
 	};
 
+	const deleteTodo = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
+
 	return (
 		<div className="App">
 			<h1>TODO LIST</h1>
-			<Todos todos={todos} toggleCompleted={toggleCompleted} />
+			<Todos
+				todos={todos}
+				toggleCompleted={toggleCompleted}
+				deleteTodo={deleteTodo}
+			/>
 		</div>
 	);
 }

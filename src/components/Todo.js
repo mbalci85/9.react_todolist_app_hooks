@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = ({ todo, toggleCompleted }) => {
+const Todo = ({ todo, toggleCompleted, deleteTodo }) => {
 	return (
 		<div>
 			<h2
@@ -25,6 +25,7 @@ const Todo = ({ todo, toggleCompleted }) => {
 						borderRadius: '50%',
 						float: 'right',
 					}}
+					onClick={() => deleteTodo(todo.id)}
 				>
 					X
 				</button>
